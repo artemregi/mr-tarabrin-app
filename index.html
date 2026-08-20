@@ -35,10 +35,18 @@
     intro.classList.add('phase-shrink');
   }, 7500);
 
-  // 8.5s: показываем сайт, запускаем hero-видео
+  // 8.5s: показываем сайт, запускаем hero-видео с момента стройки
   setTimeout(function() {
     var hero = document.getElementById('hero-video');
-    if (hero) { hero.muted = true; hero.play().catch(function(){}); }
+    if (hero) {
+      hero.muted = true;
+      hero.currentTime = 3.5;
+      hero.play().catch(function(){});
+      // Когда видео дойдёт до конца — перемотать на 3.5с (не с начала)
+      hero.addEventListener('timeupdate', function() {
+        if (hero.currentTime < 3.5) hero.currentTime = 3.5;
+      });
+    }
     var site = document.querySelector('[data-site]');
     if (site) site.classList.add('visible');
   }, 8500);
