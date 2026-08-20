@@ -35,17 +35,21 @@
     intro.classList.add('phase-shrink');
   }, 7500);
 
-  // 8.5s: показываем сайт, запускаем hero-видео с момента стройки
+  // 8.5s: показываем сайт, hero-видео продолжает с того же момента что и intro
   setTimeout(function() {
     var hero = document.getElementById('hero-video');
+    var introVid = document.getElementById('intro-video');
     if (hero) {
       hero.muted = true;
-      hero.currentTime = 3.5;
+      // Синхронизируем с intro — продолжаем с того же кадра
+      if (introVid) hero.currentTime = introVid.currentTime;
       hero.play().catch(function(){});
-      // Когда видео дойдёт до конца — перемотать на 3.5с (не с начала)
-      hero.addEventListener('timeupdate', function() {
-        if (hero.currentTime < 3.5) hero.currentTime = 3.5;
+      // При loop: со второго раза начинаем с 3.5с (стройка)
+      hero.addEventListener('ended', function() {
+        hero.currentTime = 3.5;
+        hero.play().catch(function(){});
       });
+      hero.loop = false; // управляем loop вручную
     }
     var site = document.querySelector('[data-site]');
     if (site) site.classList.add('visible');
