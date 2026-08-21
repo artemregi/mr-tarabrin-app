@@ -25,39 +25,35 @@
   var intro = document.getElementById('intro');
   var video = document.getElementById('intro-video');
 
-  // Сразу пытаемся запустить видео (muted autoplay разрешён на мобильных)
-  // Оно скрыто через opacity:0, покажем когда будет готово
-  video.play().catch(function(){});
-
-  function showSite() {
-    var hero = document.getElementById('hero-video');
-    if (hero) {
-      hero.muted = true;
-      if (video) hero.currentTime = video.currentTime;
-      hero.play().catch(function(){});
-      hero.addEventListener('ended', function() {
-        hero.currentTime = 3.5;
-        hero.play().catch(function(){});
-      });
-      hero.loop = false;
-    }
-    var site = document.querySelector('[data-site]');
-    if (site) site.classList.add('visible');
-  }
-
-  // 2.5s: показываем видео (чёрный фон уходит)
+  // 2.5s: чёрный фон уходит, видео 100% непрозрачность на весь экран
   setTimeout(function() {
     intro.classList.add('phase-video');
+    video.play().catch(function(){});
   }, 2500);
 
-  // 7.5s: логотип уходит, видео сжимается в рамку hero
+  // 7.5s: логотип уходит наверх, видео сжимается в рамку hero, текст появляется
   setTimeout(function() {
     intro.classList.add('phase-shrink');
   }, 7500);
 
-  // 8.5s: показываем сайт
+  // 8.5s: показываем сайт, hero-видео продолжает с того же момента что и intro
   setTimeout(function() {
-    showSite();
+    var hero = document.getElementById('hero-video');
+    var introVid = document.getElementById('intro-video');
+    if (hero) {
+      hero.muted = true;
+      // Синхронизируем с intro — продолжаем с того же кадра
+      if (introVid) hero.currentTime = introVid.currentTime;
+      hero.play().catch(function(){});
+      // При loop: со второго раза начинаем с 3.5с (стройка)
+      hero.addEventListener('ended', function() {
+        hero.currentTime = 3.5;
+        hero.play().catch(function(){});
+      });
+      hero.loop = false; // управляем loop вручную
+    }
+    var site = document.querySelector('[data-site]');
+    if (site) site.classList.add('visible');
   }, 8500);
 
   // 9.5s: intro плавно растворяется
