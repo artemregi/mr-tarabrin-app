@@ -937,8 +937,12 @@ class Component extends DCLogic {
   onPhone = (e) => this.setState({ lphone: e.target.value });
   submitLead = (e) => {
     e.preventDefault();
-    const digits = (this.state.lphone.match(/\d/g) || []).length;
-    if (!this.state.lname.trim() || digits < 10) { this.setState({ leadTried: true }); return; }
+    const s = this.state;
+    const digits = (s.lphone.match(/\d/g) || []).length;
+    if (!s.lname.trim() || digits < 10) { this.setState({ leadTried: true }); return; }
+    const typeName = s.lType >= 0 ? this.t(TYPES[s.lType]) : '';
+    const msg = `Здравствуйте! Пишу с сайта.\nМеня зовут: ${s.lname.trim()}\nМой номер: ${s.lphone.trim()}${typeName ? '\nТип объекта: ' + typeName : ''}`;
+    window.open('https://wa.me/77770000250?text=' + encodeURIComponent(msg), '_blank');
     this.setState({ leadSent: true });
   };
 
