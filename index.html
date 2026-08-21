@@ -32,26 +32,24 @@
   }, 2500);
 
   // 7.5s: логотип уходит наверх, видео сжимается в рамку hero, текст появляется
+  // Заранее готовим hero-видео чтобы не было паузы
   setTimeout(function() {
     intro.classList.add('phase-shrink');
-  }, 7500);
-
-  // 8.5s: показываем сайт, hero-видео продолжает с того же момента что и intro
-  setTimeout(function() {
     var hero = document.getElementById('hero-video');
-    var introVid = document.getElementById('intro-video');
     if (hero) {
       hero.muted = true;
-      // Синхронизируем с intro — продолжаем с того же кадра
-      if (introVid) hero.currentTime = introVid.currentTime;
+      hero.currentTime = video.currentTime;
       hero.play().catch(function(){});
-      // При loop: со второго раза начинаем с 3.5с (стройка)
       hero.addEventListener('ended', function() {
         hero.currentTime = 3.5;
         hero.play().catch(function(){});
       });
-      hero.loop = false; // управляем loop вручную
+      hero.loop = false;
     }
+  }, 7500);
+
+  // 8.5s: показываем сайт
+  setTimeout(function() {
     var site = document.querySelector('[data-site]');
     if (site) site.classList.add('visible');
   }, 8500);
