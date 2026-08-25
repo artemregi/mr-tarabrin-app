@@ -76,7 +76,7 @@
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#F4F1EC" />
-<meta name="description" content="MR.TARABRIN | Design &amp; Construction — проектирование, производство и монтаж коммерческих интерьеров, вывесок и выставочных стендов. Алматы и Дубай." />
+<meta name="description" content="MR.TARABRIN | Design &amp; Construction — проектирование, производство и монтаж коммерческих интерьеров, вывесок и выставочных стендов." />
 <title>MR.TARABRIN — дизайн и строительство коммерческих интерьеров</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
@@ -281,11 +281,10 @@
 
         <section data-pad="1" data-wide="1" style="margin: 0 auto; padding: 30px 18px 0;">
           <div style="background: #17181A; color: #F6F3EE; border-radius: 26px; padding: 26px 22px;">
-            <span data-kz="ИИ-есептеу" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #A89982;">Расчёт с ИИ</span>
-            <h2 data-kz="Объект бойынша көлемді бағалау — 4 қадам" style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 21px; letter-spacing: -0.03em; margin: 12px 0 0; max-width: 22ch;">Прикинуть объём по объекту — 4 шага</h2>
-            <p data-kz="Түрі, ауданы, мерзімі және қаласаңыз фото. ИИ жұмыс құрамын, кезеңдерін және шамамен вилканы жинайды." style="font-size: 14px; line-height: 1.55; color: #C4BCAE; margin: 12px 0 0; max-width: 40ch;">Тип, площадь, срок и при желании фото. ИИ соберёт состав работ, этапы и ориентировочную вилку.</p>
-            <button onClick="{{ goCalc }}" style="margin-top: 20px; border: 0; background: #F6F3EE; color: #17181A; font-size: 15px; font-weight: 500; padding: 15px 22px; border-radius: 16px; cursor: pointer; min-height: 50px;" style-hover="background: #FC4C13; color: #FFF;">
-              <span data-kz="Есептеуді бастау">Начать расчёт</span>
+            <h2 data-kz="Объектіңіздегі есептеу" style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 21px; letter-spacing: -0.03em; margin: 0; max-width: 22ch;">Расчёт на вашем объекте</h2>
+            <p data-kz="Біз объектіге шығамыз, өлшейміз және толық сметаны жасаймыз." style="font-size: 14px; line-height: 1.55; color: #C4BCAE; margin: 12px 0 0; max-width: 40ch;">Выезжаем на объект, замеряем и составляем полную смету.</p>
+            <button onClick="{{ openLead }}" style="margin-top: 20px; border: 0; background: #F6F3EE; color: #17181A; font-size: 15px; font-weight: 500; padding: 15px 22px; border-radius: 16px; cursor: pointer; min-height: 50px;" style-hover="background: #FC4C13; color: #FFF;">
+              <span data-kz="Өтінім жіберу">Отправить заявку</span>
             </button>
           </div>
         </section>
@@ -300,27 +299,6 @@
                 <p style="font-size: 14px; line-height: 1.55; color: {{ st.accent ? '#A5A097' : '#6B6862' }}; margin: 8px 0 0;">{{ st.text }}</p>
               </div>
             </sc-for>
-          </div>
-        </section>
-
-        <section data-pad="1" data-wide="1" style="margin: 0 auto; padding: 30px 18px 0;">
-          <h2 data-h1="1" data-kz="Алматы және Дубай" style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: -0.03em; margin: 0 0 14px;">Алматы и Дубай</h2>
-          <div data-g2="1" style="display: grid; gap: 12px; align-items: start;">
-            <img src="uploads/Mebel-kz-landing-page/photos/e4.jpg" alt="Смонтированный стенд с подсвеченной стойкой на выставочной площадке" loading="lazy" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 20px; background: #E6E1D8;" />
-            <div style="display: grid; gap: 1px; background: #E0DAD0; border-radius: 18px; overflow: hidden;">
-              <div style="background: #FBF9F6; padding: 16px 18px; display: flex; justify-content: space-between; gap: 14px; align-items: baseline;">
-                <span style="font-family: 'Unbounded', sans-serif; font-size: 15px;">Алматы</span>
-                <span data-kz="жоба, өндіріс, монтаж" style="font-size: 13px; color: #6B6862; text-align: right;">проект, производство, монтаж</span>
-              </div>
-              <div style="background: #FBF9F6; padding: 16px 18px; display: flex; justify-content: space-between; gap: 14px; align-items: baseline;">
-                <span style="font-family: 'Unbounded', sans-serif; font-size: 15px;">Атырау</span>
-                <span data-kz="көрме стендтері" style="font-size: 13px; color: #6B6862; text-align: right;">выставочные стенды</span>
-              </div>
-              <div style="background: #FBF9F6; padding: 16px 18px; display: flex; justify-content: space-between; gap: 14px; align-items: baseline;">
-                <span style="font-family: 'Unbounded', sans-serif; font-size: 15px;">Дубай</span>
-                <span data-kz="ҚМЖ — renoway.ae серіктесі" style="font-size: 13px; color: #6B6862; text-align: right;">СМР — партнёр renoway.ae</span>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -366,11 +344,11 @@
 
         <footer data-pad="1" data-wide="1" style="margin: 0 auto; padding: 30px 18px 0;">
           <div style="border-top: 1px solid #E0DAD0; padding-top: 22px; display: grid; gap: 14px;">
-            <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 15px;">MR.TARABRIN</div>
+            <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 15px;">ТОО "MR. TARABRIN"</div>
             <div style="display: grid; gap: 10px; font-size: 15px;">
-              <a href="https://www.instagram.com/mr.tarabrin.works" target="_blank" rel="noopener">@mr.tarabrin.works</a>
-              <a href="https://www.mr.tarabrin.kz" target="_blank" rel="noopener">mr.tarabrin.kz</a>
-              <a href="https://renoway.ae" target="_blank" rel="noopener">renoway.ae — Дубай</a>
+              <a href="https://mr.tarabrin.kz" target="_blank" rel="noopener">mr.tarabrin.kz</a>
+              <span style="font-size: 14px; color: #6B6862; margin-top: 4px;">Renoway technical service LLC</span>
+              <a href="https://renoway.ae" target="_blank" rel="noopener">renoway.ae</a>
             </div>
             <span style="font-size: 12px; color: #86827B;">© 2026 MR.TARABRIN | Design &amp; Construction</span>
           </div>
@@ -440,158 +418,12 @@
       <main style="padding-bottom: 132px; animation: fadeIn .22s ease;">
         <div data-pad="1" data-wide="1" style="margin: 0 auto; padding: 20px 18px 0; max-width: 720px;">
           <h1 data-h1="1" data-kz="Объектіні есептеу" style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 26px; letter-spacing: -0.035em; margin: 0;">Расчёт объекта</h1>
-          <p style="font-size: 15px; line-height: 1.55; color: #6B6862; margin: 10px 0 0; max-width: 46ch;">{{ calcIntro }}</p>
-
-          <sc-if value="{{ calcInProgress }}" hint-placeholder-val="{{ true }}">
-            <div style="margin-top: 22px;">
-              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
-                <span style="font-family: 'Unbounded', sans-serif; font-size: 12px; letter-spacing: 0.08em; color: #86827B;">{{ stepLabel }}</span>
-                <span style="font-size: 13px; color: #86827B;">{{ stepName }}</span>
-              </div>
-              <div style="height: 4px; background: #E0DAD0; border-radius: 999px; margin-top: 10px; overflow: hidden;">
-                <div style="height: 100%; width: {{ stepPct }}; background: #FC4C13; border-radius: 999px; transition: width .32s cubic-bezier(.22,.61,.36,1);"></div>
-              </div>
-
-              <div style="margin-top: 22px; animation: riseIn .26s ease;">
-                <sc-if value="{{ isStep1 }}">
-                  <div style="display: grid; gap: 10px;">
-                    <sc-for list="{{ typeOptions }}" as="o" hint-placeholder-count="7">
-                      <button onClick="{{ o.select }}" style="text-align: left; border: 1.5px solid {{ o.bd }}; background: {{ o.bg }}; color: {{ o.fg }}; border-radius: 16px; padding: 16px 18px; font-size: 15px; cursor: pointer; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
-                        <span>{{ o.label }}</span>
-                        <span style="font-size: 18px; color: {{ o.tick }};">✓</span>
-                      </button>
-                    </sc-for>
-                  </div>
-                </sc-if>
-                <sc-if value="{{ isStep2 }}">
-                  <div style="display: grid; gap: 20px;">
-                    <label style="display: grid; gap: 8px;">
-                      <span style="font-size: 14px; color: #6B6862;">{{ areaLabel }}</span>
-                      <input value="{{ area }}" onInput="{{ onArea }}" type="number" inputMode="numeric" min="1" placeholder="45" style="border: 1.5px solid {{ areaBd }}; border-radius: 16px; padding: 16px 18px; background: #FFF; font-size: 17px; min-height: 56px;" />
-                      <span style="font-size: 13px; color: {{ areaHintColor }};">{{ areaHint }}</span>
-                    </label>
-                    <div style="display: grid; gap: 10px;">
-                      <span style="font-size: 14px; color: #6B6862;">{{ cityLabel }}</span>
-                      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                        <sc-for list="{{ cityOptions }}" as="o" hint-placeholder-count="5">
-                          <button onClick="{{ o.select }}" style="border: 1.5px solid {{ o.bd }}; background: {{ o.bg }}; color: {{ o.fg }}; border-radius: 999px; padding: 12px 18px; font-size: 15px; cursor: pointer; min-height: 48px;">{{ o.label }}</button>
-                        </sc-for>
-                      </div>
-                    </div>
-                  </div>
-                </sc-if>
-                <sc-if value="{{ isStep3 }}">
-                  <div style="display: grid; gap: 10px;">
-                    <sc-for list="{{ termOptions }}" as="o" hint-placeholder-count="4">
-                      <button onClick="{{ o.select }}" style="text-align: left; border: 1.5px solid {{ o.bd }}; background: {{ o.bg }}; color: {{ o.fg }}; border-radius: 16px; padding: 16px 18px; font-size: 15px; cursor: pointer; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
-                        <span>{{ o.label }}</span>
-                        <span style="font-size: 18px; color: {{ o.tick }};">✓</span>
-                      </button>
-                    </sc-for>
-                  </div>
-                </sc-if>
-                <sc-if value="{{ isStep4 }}">
-                  <div style="display: grid; gap: 18px;">
-                    <label style="display: grid; gap: 10px; cursor: pointer;">
-                      <span style="font-size: 14px; color: #6B6862;">{{ photoLabel }}</span>
-                      <span style="border: 1.5px dashed #C9C2B7; border-radius: 16px; padding: 20px; background: #FBF9F6; display: flex; align-items: center; gap: 12px; min-height: 72px;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#86827B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.6"/><circle cx="9" cy="10.5" r="1.8"/><path d="m4 17 5-4 4 3 3-2 4 3"/></svg>
-                        <span style="font-size: 15px; color: #6B6862;">{{ photoCta }}</span>
-                      </span>
-                      <input onChange="{{ onPhoto }}" type="file" accept="image/*" style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none;" />
-                    </label>
-                    <sc-if value="{{ hasPhoto }}">
-                      <img src="{{ photoSrc }}" alt="Загруженное фото объекта" style="width: 100%; max-height: 220px; object-fit: cover; border-radius: 16px;" />
-                    </sc-if>
-                    <label style="display: grid; gap: 8px;">
-                      <span style="font-size: 14px; color: #6B6862;">{{ noteLabel }}</span>
-                      <textarea value="{{ note }}" onInput="{{ onNote }}" rows="3" placeholder="{{ notePlaceholder }}" style="border: 1.5px solid #E0DAD0; border-radius: 16px; padding: 16px 18px; background: #FFF; font-size: 16px; resize: vertical;"></textarea>
-                    </label>
-                  </div>
-                </sc-if>
-              </div>
-            </div>
-          </sc-if>
-
-          <sc-if value="{{ calcBusy }}">
-            <div style="margin-top: 22px; background: #17181A; color: #F6F3EE; border-radius: 22px; padding: 24px;">
-              <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #A89982;">{{ calcBusyLabel }}</span>
-              <div style="display: grid; gap: 10px; margin-top: 18px;">
-                <div style="height: 26px; border-radius: 8px; background: rgba(246,243,238,0.14); animation: pulse 1.2s ease-in-out infinite; width: 70%;"></div>
-                <div style="height: 14px; border-radius: 6px; background: rgba(246,243,238,0.1); animation: pulse 1.2s ease-in-out infinite .15s; width: 92%;"></div>
-                <div style="height: 14px; border-radius: 6px; background: rgba(246,243,238,0.1); animation: pulse 1.2s ease-in-out infinite .3s; width: 84%;"></div>
-                <div style="height: 14px; border-radius: 6px; background: rgba(246,243,238,0.1); animation: pulse 1.2s ease-in-out infinite .45s; width: 60%;"></div>
-              </div>
-            </div>
-          </sc-if>
-
-          <sc-if value="{{ calcError }}">
-            <div style="margin-top: 22px; background: #FFF; border: 1px solid #E6C4B6; border-radius: 22px; padding: 22px;">
-              <div style="font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: -0.02em;">{{ errTitle }}</div>
-              <p style="font-size: 14px; line-height: 1.55; color: #6B6862; margin: 8px 0 0;">{{ errText }}</p>
-              <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap;">
-                <button onClick="{{ runCalc }}" style="border: 0; background: #17181A; color: #F6F3EE; border-radius: 14px; padding: 13px 20px; font-size: 15px; cursor: pointer; min-height: 48px;">{{ retryLabel }}</button>
-                <button onClick="{{ openLead }}" style="border: 1px solid #DCD6CB; background: transparent; border-radius: 14px; padding: 13px 20px; font-size: 15px; cursor: pointer; min-height: 48px;">{{ leadLabel }}</button>
-              </div>
-            </div>
-          </sc-if>
-
-          <sc-if value="{{ hasResult }}">
-            <div style="margin-top: 22px; animation: riseIn .3s ease;">
-              <div style="background: #17181A; color: #F6F3EE; border-radius: 24px; padding: 24px 22px;">
-                <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #A89982;">{{ resLabel }}</span>
-                <div style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 24px; letter-spacing: -0.03em; line-height: 1.2; margin-top: 8px;">{{ resTotal }}</div>
-                <div style="display: grid; gap: 1px; background: rgba(246,243,238,0.14); margin-top: 18px; border-radius: 14px; overflow: hidden;">
-                  <div style="background: #1D1E20; padding: 14px 16px; display: flex; justify-content: space-between; gap: 14px; align-items: baseline;">
-                    <span style="font-size: 13px; color: #A89982;">{{ perSqmLabel }}</span>
-                    <span style="font-size: 15px; text-align: right;">{{ resPerSqm }}</span>
-                  </div>
-                  <div style="background: #1D1E20; padding: 14px 16px; display: flex; justify-content: space-between; gap: 14px; align-items: baseline;">
-                    <span style="font-size: 13px; color: #A89982;">{{ termLabel }}</span>
-                    <span style="font-size: 15px; text-align: right;">{{ resTerm }}</span>
-                  </div>
-                </div>
-              </div>
-              <div style="background: #FFF; border: 1px solid #E6E1D8; border-radius: 22px; padding: 22px; margin-top: 10px;">
-                <div style="font-size: 13px; color: #86827B;">{{ scopeLabel }}</div>
-                <ul style="margin: 12px 0 0; padding-left: 20px; display: grid; gap: 8px; font-size: 15px; line-height: 1.5;">
-                  <sc-for list="{{ resScope }}" as="it" hint-placeholder-count="5">
-                    <li>{{ it.text }}</li>
-                  </sc-for>
-                </ul>
-                <sc-if value="{{ hasChecks }}">
-                  <div style="margin-top: 20px; padding-top: 18px; border-top: 1px solid #EDE9E2;">
-                    <div style="font-size: 13px; color: #86827B;">{{ checkLabel }}</div>
-                    <ul style="margin: 12px 0 0; padding-left: 20px; display: grid; gap: 8px; font-size: 15px; line-height: 1.5; color: #6B6862;">
-                      <sc-for list="{{ resChecks }}" as="it" hint-placeholder-count="3">
-                        <li>{{ it.text }}</li>
-                      </sc-for>
-                    </ul>
-                  </div>
-                </sc-if>
-                <p style="font-size: 13px; line-height: 1.5; color: #86827B; margin: 18px 0 0;">{{ disclaimer }}</p>
-              </div>
-              <div style="display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap;">
-                <button onClick="{{ openLead }}" style="flex: 1 1 200px; border: 0; background: #FC4C13; color: #FFF; border-radius: 16px; padding: 16px; font-size: 15px; font-weight: 500; cursor: pointer; min-height: 52px;">{{ refineLabel }}</button>
-                <button onClick="{{ resetCalc }}" style="flex: 0 1 auto; border: 1px solid #DCD6CB; background: transparent; border-radius: 16px; padding: 16px 20px; font-size: 15px; cursor: pointer; min-height: 52px;">{{ againLabel }}</button>
-              </div>
-            </div>
-          </sc-if>
+          <p data-kz="Есептеу объектіңізде кездесуден кейін жасалады" style="font-size: 15px; line-height: 1.55; color: #6B6862; margin: 10px 0 0; max-width: 46ch;">Расчёт будет выполнен после встречи на вашем объекте</p>
+          <button onClick="{{ openLead }}" style="margin-top: 22px; border: 0; background: #FC4C13; color: #FFF; font-size: 16px; font-weight: 500; padding: 17px 28px; border-radius: 16px; cursor: pointer; min-height: 56px;" style-active="transform: scale(.97);">
+            <span data-kz="Өтінім жіберу">Отправить заявку</span>
+          </button>
         </div>
       </main>
-
-      <sc-if value="{{ calcInProgress }}">
-        <div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 65; padding: 10px 18px calc(96px + env(safe-area-inset-bottom)); background: linear-gradient(180deg, rgba(244,241,236,0) 0%, rgba(244,241,236,0.9) 45%);">
-          <div data-wide="1" style="margin: 0 auto; display: flex; gap: 10px;">
-            <sc-if value="{{ canGoBack }}">
-              <button onClick="{{ stepBack }}" aria-label="Назад" style="border: 1px solid rgba(20,21,23,0.14); background: rgba(255,255,255,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 16px; width: 56px; min-height: 56px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#141517" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
-              </button>
-            </sc-if>
-            <button onClick="{{ stepNext }}" disabled="{{ nextDisabled }}" style="flex: 1; border: 0; background: {{ nextBg }}; color: {{ nextFg }}; border-radius: 16px; padding: 16px; font-size: 16px; font-weight: 500; cursor: {{ nextCursor }}; min-height: 56px;">{{ nextLabel }}</button>
-          </div>
-        </div>
-      </sc-if>
     </sc-if>
 
     <div ref="{{ bar }}" data-tabbar="1" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 75; padding: 0 14px calc(10px + env(safe-area-inset-bottom)); pointer-events: none; transition: transform .34s cubic-bezier(.22,.61,.36,1);">
@@ -783,11 +615,11 @@ const SERVICES = [
 ];
 
 const STEPS = [
-  { n: '01', title: T('Замер и задача', 'Өлшеу және міндет'), text: T('Выезжаем на объект, уточняем требования ТРЦ, сроки и брендбук.', 'Объектіге шығамыз, СОО талаптарын, мерзімдерін және брендбукті нақтылаймыз.') },
-  { n: '02', title: T('Проект и смета', 'Жоба және смета'), text: T('Согласуем проект, материалы и узлы. Смета привязана к составу работ.', 'Жобаны, материалдар мен түйіндерді келісеміз. Смета жұмыс құрамымен байланысады.') },
-  { n: '03', title: T('Своё производство', 'Өз өндірісі'), text: T('Мебель, вывески, панели и УФ-печать — на своей базе.', 'Жиһаз, маңдайшалар, панельдер және УК-баспа — өз базамызда.'), accent: true },
-  { n: '04', title: T('Монтаж и сдача', 'Монтаж және тапсыру'), text: T('Монтаж на площадке, электрика, свет, подключение и сдача к открытию.', 'Алаңдағы монтаж, электрика, жарық, қосу және ашылуға тапсыру.') },
-  { n: '05', title: T('Авторский надзор', 'Авторлық қадағалау'), text: T('Входит в стоимость. Контролируем соответствие проекту на каждом этапе — заказчик экономит от 2 до 4 млн ₸ и выигрывает в безопасности, времени и качестве.', 'Құнына кіреді. Жобаға сәйкестікті әр кезеңде бақылаймыз — тапсырыс беруші 2-ден 4 млн ₸ дейін үнемдейді, қауіпсіздік, уақыт және сапа ұтады.'), accent: true }
+  { n: '01', title: T('Замер и задача', 'Өлшеу және міндет'), text: T('Выезжаем на объект, фиксируем размеры, требования ТРЦ, сроки и брендбук.', 'Объектіге шығамыз, өлшемдерді, СОО талаптарын, мерзімдерін және брендбукті тіркейміз.') },
+  { n: '02', title: T('Дизайн-проект со сметой', 'Дизайн-жоба сметамен'), text: T('Разрабатываем планировку, визуализацию и рабочую документацию. Смета привязана к составу работ.', 'Жоспарлау, визуализация және жұмыс құжаттамасын жасаймыз. Смета жұмыс құрамымен байланысады.') },
+  { n: '03', title: T('Собственное производство', 'Өз өндірісі'), text: T('Мебель, вывески, панели и УФ-печать — изготавливаем на своей базе.', 'Жиһаз, маңдайшалар, панельдер және УК-баспа — өз базамызда жасаймыз.'), accent: true },
+  { n: '04', title: T('Строительно-монтажные работы', 'Құрылыс-монтаж жұмыстары'), text: T('Демонтаж, черновая отделка, электрика, сантехника, чистовая отделка и монтаж всех элементов.', 'Демонтаж, өрескел өңдеу, электрика, сантехника, таза өңдеу және барлық элементтерді монтаждау.') },
+  { n: '05', title: T('Сдача объекта', 'Объектіні тапсыру'), text: T('Финальная проверка, устранение замечаний и передача готового объекта заказчику.', 'Соңғы тексеру, ескертулерді жою және дайын объектіні тапсырыс берушіге тапсыру.'), accent: true }
 ];
 
 const TYPES = [
