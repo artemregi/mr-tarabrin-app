@@ -419,9 +419,47 @@
         <div data-pad="1" data-wide="1" style="margin: 0 auto; padding: 20px 18px 0; max-width: 720px;">
           <h1 data-h1="1" data-kz="Объектіні есептеу" style="font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 26px; letter-spacing: -0.035em; margin: 0;">Расчёт объекта</h1>
           <p data-kz="Есептеу объектіңізде кездесуден кейін жасалады" style="font-size: 15px; line-height: 1.55; color: #6B6862; margin: 10px 0 0; max-width: 46ch;">Расчёт будет выполнен после встречи на вашем объекте</p>
-          <button onClick="{{ openLead }}" style="margin-top: 22px; border: 0; background: #FC4C13; color: #FFF; font-size: 16px; font-weight: 500; padding: 17px 28px; border-radius: 16px; cursor: pointer; min-height: 56px;" style-active="transform: scale(.97);">
-            <span data-kz="Өтінім жіберу">Отправить заявку</span>
-          </button>
+
+          <div style="margin-top: 24px; display: grid; gap: 1px; background: #E0DAD0; border: 1px solid #E0DAD0; border-radius: 20px; overflow: hidden;">
+            <div style="background: #FBF9F6; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start;">
+              <span style="font-family: 'Unbounded', sans-serif; font-size: 12px; color: #FC4C13; flex-shrink: 0; margin-top: 2px;">01</span>
+              <div>
+                <div style="font-weight: 500; font-size: 15px;" data-kz="Өтінім қалдырасыз">Оставляете заявку</div>
+                <p style="font-size: 13px; color: #6B6862; margin: 4px 0 0;" data-kz="Атыңыз, телефоныңыз және объект түрі">Имя, телефон и тип объекта</p>
+              </div>
+            </div>
+            <div style="background: #FBF9F6; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start;">
+              <span style="font-family: 'Unbounded', sans-serif; font-size: 12px; color: #FC4C13; flex-shrink: 0; margin-top: 2px;">02</span>
+              <div>
+                <div style="font-weight: 500; font-size: 15px;" data-kz="Объектіге шығамыз">Выезжаем на объект</div>
+                <p style="font-size: 13px; color: #6B6862; margin: 4px 0 0;" data-kz="Өлшеу, фотофиксация, талаптарды нақтылау">Замер, фотофиксация, уточнение требований</p>
+              </div>
+            </div>
+            <div style="background: #17181A; color: #F6F3EE; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start;">
+              <span style="font-family: 'Unbounded', sans-serif; font-size: 12px; color: #FC4C13; flex-shrink: 0; margin-top: 2px;">03</span>
+              <div>
+                <div style="font-weight: 500; font-size: 15px;" data-kz="Сметаны жасаймыз">Составляем смету</div>
+                <p style="font-size: 13px; color: #A5A097; margin: 4px 0 0;" data-kz="Жұмыс құрамы, материалдар, мерзімдер — барлығы құжатта">Состав работ, материалы, сроки — всё в документе</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; background: #FFF; border: 1px solid #E6E1D8; border-radius: 22px; padding: 22px;">
+            <div style="font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: 17px; letter-spacing: -0.02em;" data-kz="Өтінім жіберіңіз">Отправьте заявку</div>
+            <p style="font-size: 14px; color: #6B6862; margin: 8px 0 0;" data-kz="Біз хабарласамыз және кездесу уақытын келісеміз">Мы свяжемся и согласуем время встречи</p>
+            <form onSubmit="{{ submitLead }}" style="display: grid; gap: 14px; margin-top: 18px;">
+              <input value="{{ lname }}" onInput="{{ onName }}" autoComplete="name" placeholder="Имя" style="border: 1.5px solid {{ nameBd }}; border-radius: 14px; padding: 15px 18px; background: #FBF9F6; font-size: 15px; min-height: 52px;" />
+              <input value="{{ lphone }}" onInput="{{ onPhone }}" type="tel" inputMode="tel" autoComplete="tel" placeholder="+7 ___ ___ __ __" style="border: 1.5px solid {{ phoneBd }}; border-radius: 14px; padding: 15px 18px; background: #FBF9F6; font-size: 15px; min-height: 52px;" />
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <sc-for list="{{ leadTypeOptions }}" as="o" hint-placeholder-count="7">
+                  <button type="button" onClick="{{ o.select }}" style="border: 1.5px solid {{ o.bd }}; background: {{ o.bg }}; color: {{ o.fg }}; border-radius: 999px; padding: 10px 14px; font-size: 13px; cursor: pointer; min-height: 42px;">{{ o.label }}</button>
+                </sc-for>
+              </div>
+              <button type="submit" style="border: 0; background: #FC4C13; color: #FFF; border-radius: 16px; padding: 17px; font-size: 16px; font-weight: 500; cursor: pointer; min-height: 56px;">
+                <span data-kz="Өтінім жіберу">Отправить заявку</span>
+              </button>
+            </form>
+          </div>
         </div>
       </main>
     </sc-if>
