@@ -399,7 +399,7 @@
           <sc-for list="{{ services }}" as="s" hint-placeholder-count="8">
             <article style="background: #FFF; border: 1px solid #E6E1D8; border-radius: 20px; overflow: hidden;">
               <div style="display: flex; align-items: center; gap: 14px;">
-                <img src="{{ s.img }}" alt="{{ s.title }}" loading="lazy" style="width: 96px; height: 96px; object-fit: cover; flex-shrink: 0; background: #E6E1D8;" />
+                <img src="{{ s.img }}" alt="{{ s.title }}" loading="lazy" style="width: 96px; height: 96px; object-fit: {{ s.fit }}; flex-shrink: 0; background: {{ s.bg }}; padding: {{ s.pad }};" />
                 <div style="padding: 12px 16px 12px 0;">
                   <h2 style="font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: -0.02em; margin: 0;">{{ s.title }}</h2>
                   <p style="font-size: 13px; line-height: 1.5; color: #6B6862; margin: 6px 0 0;">{{ s.short }}</p>
@@ -637,7 +637,7 @@ const SERVICES = [
   { img: R('uv_print'), title: T('УФ-печать по HPL', 'HPL бойынша УК-баспа'), short: T('Печать на HPL-панелях и других материалах для отделки.', 'Әрлеуге арналған HPL панельдері мен басқа материалдарға баспа.') },
   { img: R('mebel_cd'), title: T('Мебель и детали интерьера', 'Жиһаз және интерьер бөлшектері'), short: T('Мебель и декоративные элементы под конкретный проект.', 'Нақты жобаға арналған жиһаз және сәндік элементтер.') },
   { img: R('d1'), title: T('Входные группы ЖК', 'ЖК кіреберіс топтары'), short: T('Навигация, номера, скамейки и малые формы во входных зонах.', 'Кіру аймақтарында навигация, нөмірлер, орындықтар және шағын формалар.') },
-  { img: R('renoway'), title: T('СМР в Дубае', 'Дубайдағы құрылыс-монтаж'), short: T('На объектах в ОАЭ — через партнёра renoway.ae.', 'БАӘ объектілерінде — renoway.ae серіктесі арқылы.') }
+  { img: R('renoway'), title: T('СМР в Дубае', 'Дубайдағы құрылыс-монтаж'), short: T('На объектах в ОАЭ — через партнёра renoway.ae.', 'БАӘ объектілерінде — renoway.ae серіктесі арқылы.'), fit: 'contain', bg: '#EEF2F5' }
 ];
 
 const STEPS = [
@@ -852,7 +852,7 @@ class Component extends DCLogic {
         const on = s.cat === c.key;
         return { label: t(c.label), select: this.pick('cat', c.key), bg: on ? '#17181A' : '#FFF', fg: on ? '#F6F3EE' : '#4A4844', bd: on ? '#17181A' : '#E0DAD0' };
       }),
-      services: SERVICES.map(x => ({ img: x.img, title: t(x.title), short: t(x.short), cta: t(T('Обсудить задачу', 'Міндетті талқылау')), request: this.openLead })),
+      services: SERVICES.map(x => ({ img: x.img, title: t(x.title), short: t(x.short), cta: t(T('Обсудить задачу', 'Міндетті талқылау')), request: this.openLead, fit: x.fit || 'cover', bg: x.bg || '#E6E1D8', pad: x.fit === 'contain' ? '10px' : '0' })),
       topServices: SERVICES.slice(0, 3).map(x => ({ img: x.img, title: t(x.title), short: t(x.short) })),
       steps: STEPS.map(x => ({ n: x.n, title: t(x.title), text: t(x.text) })),
 
