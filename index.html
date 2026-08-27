@@ -24,52 +24,59 @@
 (function() {
   var intro = document.getElementById('intro');
   var video = document.getElementById('intro-video');
+  var started = false;
 
-  // 2.5s: чёрный фон уходит, видео 100% непрозрачность на весь экран
-  setTimeout(function() {
-    intro.classList.add('phase-video');
-    video.play().catch(function(){});
-  }, 2500);
-
-  // 5s: заранее готовим hero-видео — seek к нужному кадру, даём 2.5с на буферизацию
-  setTimeout(function() {
+  function showSite() {
     var hero = document.getElementById('hero-video');
     if (hero) {
       hero.muted = true;
-      hero.currentTime = video.currentTime;
-      // Показываем hero только когда он реально начнёт играть с нужного кадра
-      hero.addEventListener('playing', function() {
-        hero.style.opacity = '0.7';
-      }, { once: true });
+      if (video && video.currentTime) hero.currentTime = video.currentTime;
+      hero.addEventListener('playing', function() { hero.style.opacity = '0.7'; }, { once: true });
       hero.play().catch(function(){});
-      hero.addEventListener('ended', function() {
-        hero.currentTime = 3.5;
-        hero.play().catch(function(){});
-      });
+      hero.addEventListener('ended', function() { hero.currentTime = 3.5; hero.play().catch(function(){}); });
       hero.loop = false;
     }
-  }, 5000);
-
-  // 7.5s: логотип уходит наверх, видео сжимается в рамку hero
-  setTimeout(function() {
-    intro.classList.add('phase-shrink');
-  }, 7500);
-
-  // 8.5s: показываем сайт
-  setTimeout(function() {
     var site = document.querySelector('[data-site]');
     if (site) site.classList.add('visible');
-  }, 8500);
+  }
 
-  // 9.5s: intro плавно растворяется
-  setTimeout(function() {
-    intro.classList.add('phase-fade');
-  }, 9500);
+  function skipIntro() {
+    if (started) return;
+    started = true;
+    intro.classList.add('phase-shrink');
+    setTimeout(function() { showSite(); }, 800);
+    setTimeout(function() { intro.classList.add('phase-fade'); }, 1300);
+    setTimeout(function() { intro.remove(); }, 2500);
+  }
 
-  // 11.5s: удаляем intro
-  setTimeout(function() {
-    intro.remove();
-  }, 11500);
+  function runIntro() {
+    if (started) return;
+    started = true;
+    // Видео готово — показываем
+    intro.classList.add('phase-video');
+    video.play().catch(function(){});
+
+    setTimeout(function() { intro.classList.add('phase-shrink'); }, 5000);
+    setTimeout(function() { showSite(); }, 6000);
+    setTimeout(function() { intro.classList.add('phase-fade'); }, 7000);
+    setTimeout(function() { intro.remove(); }, 9000);
+  }
+
+  // Пробуем запустить видео сразу (muted autoplay)
+  video.play().then(function() {
+    // Видео играет — ждём 2.5с для показа логотипа, потом запускаем интро
+    video.pause();
+    video.currentTime = 0;
+    setTimeout(runIntro, 2500);
+  }).catch(function() {
+    // Видео не может играть — ждём canplay
+    video.addEventListener('canplay', function() {
+      setTimeout(runIntro, 1000);
+    }, { once: true });
+  });
+
+  // Фоллбек: если видео не загрузилось за 5с — пропускаем интро
+  setTimeout(skipIntro, 5000);
 })();
 </script>
 <x-dc>
