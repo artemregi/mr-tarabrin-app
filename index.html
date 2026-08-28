@@ -539,6 +539,16 @@
                     <span style="border: 1px solid #DCD6CB; border-radius: 999px; padding: 8px 14px; font-size: 13px; color: #4A4844;">{{ t.text }}</span>
                   </sc-for>
                 </div>
+                <sc-if value="{{ pj.hasGallery }}">
+                  <div style="margin-top: 20px;">
+                    <span style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #86827B;">Фото проекта</span>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px;">
+                      <sc-for list="{{ pj.gallery }}" as="gi" hint-placeholder-count="2">
+                        <img src="{{ gi.src }}" loading="lazy" alt="" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; background: #E6E1D8;" />
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-if>
                 <div style="display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap;">
                   <button onClick="{{ openLead }}" style="flex: 1 1 180px; border: 0; background: #FC4C13; color: #FFF; border-radius: 16px; padding: 16px; font-size: 15px; font-weight: 500; cursor: pointer; min-height: 52px;">{{ similarLabel }}</button>
                   <button onClick="{{ closeSheet }}" style="flex: 0 1 auto; border: 1px solid #DCD6CB; background: transparent; border-radius: 16px; padding: 16px 20px; font-size: 15px; cursor: pointer; min-height: 52px;">{{ closeLabel }}</button>
@@ -599,6 +609,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
 const R = (n) => (window.__resources && window.__resources['ph_' + n]) || ('uploads/Mebel-kz-landing-page/photos/' + n + '.jpg');
+const G = (n) => 'uploads/Mebel-kz-landing-page/photos/gallery/g' + String(n).padStart(2, '0') + '.jpg';
 const T = (ru, kz) => ({ ru, kz });
 
 const PROJECTS = [
@@ -606,32 +617,32 @@ const PROJECTS = [
     title: "Hero's Journey",
     short: T('Полный цикл: интерьер, фасад, вывеска и внутренняя отделка студии.', 'Толық цикл: интерьер, қасбет, маңдайша және студияның ішкі әрлеуі.'),
     full: T('Фитнес-студия Hero\'s Journey: фасадная вывеска с контражурной подсветкой, интерьер, отделка и навигация.', 'Hero\'s Journey фитнес-студиясы: контражурлы жарықты фасадтық маңдайша, интерьер, әрлеу және навигация.'),
-    tags: [T('Фасад', 'Қасбет'), T('Вывеска', 'Маңдайша'), T('Интерьер', 'Интерьер')] },
+    tags: [T('Фасад', 'Қасбет'), T('Вывеска', 'Маңдайша'), T('Интерьер', 'Интерьер')], gallery: [R('hj1'), R('hj3')] },
   { id: 'alloff', img: R('alloff1'), cat: T('HoReCa', 'HoReCa'), place: T('Астана', 'Астана'), group: 'food',
     title: 'ALL OFF BURGER',
     short: T('Кассовая зона, барная стойка, меню-борды и вывеска.', 'Касса аймағы, бар стойкасы, мәзір тақталары және маңдайша.'),
     full: T('Кассовая зона, барная стойка, меню-борды, вывеска и внутренняя отделка.', 'Касса аймағы, бар стойкасы, мәзір тақталары, маңдайша және ішкі әрлеу.'),
-    tags: [T('Касса', 'Касса'), T('Барная стойка', 'Бар стойкасы'), T('Вывеска', 'Маңдайша')] },
+    tags: [T('Касса', 'Касса'), T('Барная стойка', 'Бар стойкасы'), T('Вывеска', 'Маңдайша')], gallery: [G(25), G(17), G(22)] },
   { id: 'burger', img: R('a2'), cat: T('HoReCa', 'HoReCa'), place: T('Алматы', 'Алматы'), group: 'food',
     title: 'Burger Na Abaya',
     short: T('Кассовая зона, меню-борды и объёмные световые логотипы.', 'Касса аймағы, мәзір тақталары және көлемді жарықты логотиптер.'),
     full: T('Кассовая зона, меню-борды, объёмные световые логотипы и отделка производственной зоны.', 'Касса аймағы, мәзір тақталары, көлемді жарықты логотиптер және өндірістік аймақтың әрлеуі.'),
-    tags: [T('Касса', 'Касса'), T('Меню-борды', 'Мәзір тақталары'), T('Свет', 'Жарық')] },
+    tags: [T('Касса', 'Касса'), T('Меню-борды', 'Мәзір тақталары'), T('Свет', 'Жарық')], gallery: [G(20), G(21)] },
   { id: 'invictus_race', img: R('invictus_race'), cat: T('Фитнес-клуб', 'Фитнес-клуб'), place: T('Алматы', 'Алматы'), group: 'retail',
     title: 'Invictus Race',
     short: T('Неоновая вывеска, рейки с LED-подсветкой, зал для сайклинга.', 'Неонды маңдайша, LED жарықты рейкалар, сайклинг залы.'),
     full: T('Invictus Race: неоновая вывеска, декоративные рейки с диагональной LED-подсветкой, оформление зала для сайклинга.', 'Invictus Race: неонды маңдайша, диагональді LED жарықты сәндік рейкалар, сайклинг залын безендіру.'),
-    tags: [T('Неон', 'Неон'), T('Свет', 'Жарық'), T('Интерьер', 'Интерьер')] },
+    tags: [T('Неон', 'Неон'), T('Свет', 'Жарық'), T('Интерьер', 'Интерьер')], gallery: [R('invictus_race'), R('invictus_go')] },
   { id: 'invictus_go', img: R('invictus_go'), cat: T('Фитнес-клуб', 'Фитнес-клуб'), place: T('Алматы', 'Алматы'), group: 'retail',
     title: 'Invictus Go',
     short: T('Фасадная вывеска, профнастил и входная группа клуба.', 'Фасадтық маңдайша, профнастил және клубтың кіреберіс тобы.'),
     full: T('Invictus Go: фасадная вывеска с объёмными буквами, профнастил и оформление входной группы.', 'Invictus Go: көлемді әріптері бар фасадтық маңдайша, профнастил және кіреберіс тобын безендіру.'),
-    tags: [T('Фасад', 'Қасбет'), T('Вывеска', 'Маңдайша'), T('Входная группа', 'Кіреберіс тобы')] },
+    tags: [T('Фасад', 'Қасбет'), T('Вывеска', 'Маңдайша'), T('Входная группа', 'Кіреберіс тобы')], gallery: [R('invictus_go'), R('invictus_race')] },
   { id: 'sesame', img: R('sesame1'), cat: T('HoReCa', 'HoReCa'), place: T('Mega Silk Way, Астана', 'Mega Silk Way, Астана'), group: 'food',
     title: 'Sesame Coffee & Food',
     short: T('Проект, производство, отделка, мебель и вывеска. 2 этаж ТРЦ.', 'Жоба, өндіріс, әрлеу, жиһаз және маңдайша. СОО 2-қабаты.'),
     full: T('Полный цикл кафе: проект, производство, отделка, мебель, вывеска и зона оборудования. 2 этаж ТРЦ Mega Silk Way.', 'Кафе толық циклі: жоба, өндіріс, әрлеу, жиһаз, маңдайша және жабдық аймағы. Mega Silk Way СОО 2-қабаты.'),
-    tags: [T('Интерьер', 'Интерьер'), T('Мебель', 'Жиһаз'), T('Вывеска', 'Маңдайша')] },
+    tags: [T('Интерьер', 'Интерьер'), T('Мебель', 'Жиһаз'), T('Вывеска', 'Маңдайша')], gallery: [G(30), G(22)] },
   { id: 'tengiz', img: R('e2'), cat: T('Выставочный стенд', 'Көрме стенді'), place: T('Atyrau Oil and Gas', 'Atyrau Oil and Gas'), group: 'expo',
     title: T('Тенгизшевройл', 'ТЕҢІЗШЕВРОЙЛ'),
     short: T('Стенд: переговорная зона, медиа-стены, витрины, свет.', 'Стенд: келіссөз аймағы, медиа қабырғалар, витриналар, жарық.'),
@@ -844,7 +855,9 @@ class Component extends DCLogic {
     const mapProject = (p) => ({
       img: p.img, title: t(p.title) || p.title, cat: t(p.cat), place: t(p.place),
       short: t(p.short), full: t(p.full), open: this.openProject(p),
-      tags: (p.tags || []).map(x => ({ text: t(x) }))
+      tags: (p.tags || []).map(x => ({ text: t(x) })),
+      gallery: (p.gallery || []).map(src => ({ src: src })),
+      hasGallery: !!(p.gallery && p.gallery.length)
     });
 
     const nextReady = s.step === 2 ? areaOk : (s.step === 3 ? s.cTerm >= 0 : true);
