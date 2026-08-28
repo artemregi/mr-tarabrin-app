@@ -763,9 +763,10 @@ class Component extends DCLogic {
   };
   setLang = (lang) => () => this.setState({ lang });
 
-  openProject = (p) => () => this.setState({ sheet: 'project', project: p });
-  openLead = () => this.setState({ sheet: 'lead', leadSent: false, leadTried: false });
-  closeSheet = () => this.setState({ sheet: null });
+  _scrollY = 0;
+  openProject = (p) => () => { this._scrollY = window.scrollY; this.setState({ sheet: 'project', project: p }); };
+  openLead = () => { this._scrollY = window.scrollY; this.setState({ sheet: 'lead', leadSent: false, leadTried: false }); };
+  closeSheet = () => { var y = this._scrollY; this.setState({ sheet: null }, function() { window.scrollTo(0, y); }); };
   _grabY0 = 0;
   grabStart = (e) => { this._grabY0 = e.touches[0].clientY; };
   grabMove = (e) => { e.preventDefault(); };
