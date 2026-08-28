@@ -18,7 +18,7 @@
     <div id="intro-logo">MR.TARABRIN</div>
     <div id="intro-sub">Design &amp; Construction</div>
   </div>
-  <button id="intro-skip" onclick="document.getElementById('intro').classList.add('phase-shrink');setTimeout(function(){var h=document.getElementById('hero-video');if(h){h.muted=true;h.currentTime=3.5;h.play().catch(function(){});h.addEventListener('ended',function(){h.currentTime=3.5;h.play().catch(function(){})});h.loop=false}var s=document.querySelector('[data-site]');if(s)s.classList.add('visible')},800);setTimeout(function(){document.getElementById('intro').classList.add('phase-fade')},1300);setTimeout(function(){document.getElementById('intro').remove()},2500)">Пропустить</button>
+  <button id="intro-skip" onclick="window.__skipIntro&&window.__skipIntro()">Пропустить</button>
 </div>
 <script>
 (function() {
@@ -26,12 +26,14 @@
   var video = document.getElementById('intro-video');
   var started = false;
 
-  function showSite() {
+  function showSite(immediate) {
     var hero = document.getElementById('hero-video');
     if (hero) {
       hero.muted = true;
-      if (video && video.currentTime) hero.currentTime = video.currentTime;
-      hero.addEventListener('playing', function() { hero.style.opacity = '0.7'; }, { once: true });
+      if (!immediate && video && video.currentTime) hero.currentTime = video.currentTime;
+      else hero.currentTime = 3.5;
+      if (immediate) hero.style.opacity = '0.7';
+      else hero.addEventListener('playing', function() { hero.style.opacity = '0.7'; }, { once: true });
       hero.play().catch(function(){});
       hero.addEventListener('ended', function() { hero.currentTime = 3.5; hero.play().catch(function(){}); });
       hero.loop = false;
@@ -44,10 +46,12 @@
     if (started) return;
     started = true;
     intro.classList.add('phase-shrink');
-    setTimeout(function() { showSite(); }, 800);
-    setTimeout(function() { intro.classList.add('phase-fade'); }, 1300);
-    setTimeout(function() { intro.remove(); }, 2500);
+    showSite(true);
+    setTimeout(function() { intro.classList.add('phase-fade'); }, 600);
+    setTimeout(function() { intro.remove(); }, 1800);
   }
+
+  window.__skipIntro = skipIntro;
 
   function runIntro() {
     if (started) return;
