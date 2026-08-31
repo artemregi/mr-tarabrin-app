@@ -35,8 +35,6 @@
       if (immediate) hero.style.opacity = '0.7';
       else hero.addEventListener('playing', function() { hero.style.opacity = '0.7'; }, { once: true });
       hero.play().catch(function(){});
-      hero.addEventListener('ended', function() { hero.currentTime = 3.5; hero.play().catch(function(){}); });
-      hero.loop = false;
     }
     var site = document.querySelector('[data-site]');
     if (site) site.classList.add('visible');
@@ -213,7 +211,7 @@
     <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
       <main style="padding-bottom: 132px;">
         <section style="position: relative; min-height: 74svh; display: flex; align-items: flex-end; overflow: hidden; background: #17181A; color: #F6F3EE;">
-          <video id="hero-video" src="uploads/Mebel-kz-landing-page/video/intro.mp4" muted playsinline preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.6s ease;"></video>
+          <video id="hero-video" src="uploads/Mebel-kz-landing-page/video/intro.mp4" muted loop playsinline preload="auto" onended="this.currentTime=0;this.play();" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.6s ease;"></video>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,24,26,0.45) 0%, rgba(23,24,26,0.3) 36%, rgba(23,24,26,0.94) 100%);"></div>
           <div data-pad="1" data-wide="1" style="position: relative; margin: 0 auto; padding: 0 18px 32px; width: 100%;">
             <span data-kz="Қазақстан · Астана · Алматы · Шымкент" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #C4BCAE;">Казахстан · Астана · Алматы · Шымкент</span>
