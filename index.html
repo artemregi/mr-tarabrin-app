@@ -41,12 +41,12 @@
   }
 
   function skipIntro() {
-    if (started) return;
+    if (!intro || !intro.parentNode) return;
     started = true;
     intro.classList.add('phase-shrink');
     showSite(true);
     setTimeout(function() { intro.classList.add('phase-fade'); }, 600);
-    setTimeout(function() { intro.remove(); }, 1800);
+    setTimeout(function() { if (intro && intro.parentNode) intro.remove(); }, 1800);
   }
 
   window.__skipIntro = skipIntro;
